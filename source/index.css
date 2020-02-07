@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  height: 100%;
+  -webkit-user-select: none;
+}
+html{
+  height: 100%;
+}
+#root{
+  height: 100%;
+}
+ul,li{
+  list-style: none;
+}
