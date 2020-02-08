@@ -10,8 +10,7 @@ function App() {
       <Router >      
         <Header/>
         <Menu/>
-        <Body/>
-        {console.log('祝疫情早日结束')}
+        <Body/>{console.log('************************\n祝疫情早日结束\n祝工作在一线的白衣天使身体健康\n再也不要有人牺牲\n*****************************')}
       </Router>
     </div>
   );

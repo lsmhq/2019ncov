@@ -26,8 +26,8 @@ export default class City extends Component {
                                                 <div id='citys'>
                                                     <h3>{val.cityName}</h3>
                                                     <ul>
-                                                        <li>确诊数:{val.confirmedCount}</li>
-                                                        <li>疑似数:{val.suspectedCount}</li>
+                                                        <li>确诊:{val.confirmedCount}</li>
+                                                        <li>疑似:{val.suspectedCount}</li>
                                                         <li>治愈:{val.curedCount}</li>
                                                         <li>死亡:{val.deadCount}</li>
                                                     </ul>

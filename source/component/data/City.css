@@ -1,61 +1,177 @@
-.citys-outer{
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
+@media screen and (min-width:700px) and (max-width:3000px){
+    .citys-outer{
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .citys-outer::-webkit-scrollbar{
+        width: 5px;
+    }
+    .citys-outer::-webkit-scrollbar-thumb{
+        background-color: coral;
+        border-radius: 3px;
+    }
+    .citys-outer::-webkit-scrollbar-track{
+        background-color: rgb(230, 230, 230);
+    }
+    .head{
+        width:100% ; 
+        height: 60px;
+        float: left;
+        margin-left: 10%;
+        font-size: 22px;
+    }
+    .head>li{
+        float: left;
+        width: 10%;
+        height: 30px;
+        line-height: 30px;
+        background-color: rgb(255, 174, 0);
+    }
+    .container-citys{
+        float: left;
+        margin-left: 10%;
+    }
+    #citys{
+        width: 15%;
+        float: left;
+    }
+    #citys>ul>li{
+        float: left;
+        margin-left: 40px;
+        width: 100%;
+    }
+    .city{
+        width: 100%;
+        float: left;
+        background-color: blanchedalmond;
+        margin-left: 2%;
+    }
+    .time{
+        float: left;
+        width: 30%;
+        color: rgb(0, 190, 204);
+    }
+    .author{
+        float: left;
+        width: 40%;
+        color: rgb(38, 139, 255);
+    }
+    .count-header{
+        margin-left: 2%;
+        width: 100%;
+        background-color: coral;
+    }
+    .count-header>h3{
+        font-size: 35px;
+    }
+    .count-inner{
+        float: left;
+        width: 25%;
+    }
+    .count-inner>li{
+        float: left;
+        width: 50%;
+    }
+    .count-body{
+        margin-left: 10%;
+        font-weight: 900;
+        font-size: 25px;
+        background-color: darkorange;
+        height: 40px;
+        line-height: 40px;
+        width: 80%;
+    }
 }
-.citys-outer::-webkit-scrollbar{
-    width: 10px;
-}
-.citys-outer::-webkit-scrollbar-thumb{
-    background-color: coral;
-    border-radius: 3px;
-}
-.citys-outer::-webkit-scrollbar-track{
-    background-color: rgb(230, 230, 230);
-}
-.head{
-    width:100% ; 
-    height: 60px;
-    float: left;
-    margin-left: 10%;
-    font-size: 22px;
-}
-.head>li{
-    float: left;
-    width: 10%;
-    height: 30px;
-    line-height: 30px;
-    background-color: rgb(255, 174, 0);
-}
-.container-citys{
-    float: left;
-    margin-left: 10%;
-}
-#citys{
-    width: 15%;
-    float: left;
-}
-#citys>h5{
-}
-#citys>ul>li{
-    float: left;
-    margin-left: 40px;
-    width: 100%;
-}
-.city{
-    width: 100%;
-    float: left;
-    background-color: blanchedalmond;
-    margin-left: 2%;
-}
-.time{
-    float: left;
-    width: 30%;
-    color: rgb(0, 190, 204);
-}
-.author{
-    float: left;
-    width: 40%;
-    color: rgb(38, 139, 255);
+
+@media screen and (max-width:700px){
+    .citys-outer{
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .citys-outer::-webkit-scrollbar{
+        width: 5px;
+    }
+    .citys-outer::-webkit-scrollbar-thumb{
+        background-color: coral;
+        border-radius: 3px;
+    }
+    .citys-outer::-webkit-scrollbar-track{
+        background-color: rgb(230, 230, 230);
+    }
+    .head{
+        width:120% ; 
+        height: 60px;
+        float: left;
+        margin-left: 2%;
+        font-size: 15px;
+        text-align: center;
+    }
+    .head>li{
+        float: left;
+        width: 10%;
+        height: 30px;
+        line-height: 30px;
+        background-color: rgb(255, 174, 0);
+    }
+    .container-citys{
+        float: left;
+        margin-left: 10%;
+    }
+    #citys{
+        width: 50%;
+        float: left;
+    }
+    #citys>ul>li{
+        float: left;
+        margin-left: 40px;
+        width: 100%;
+    }
+    .city{
+        width: 100%;
+        float: left;
+        background-color: blanchedalmond;
+        margin-left: 2%;
+    }
+    .time{
+        float: left;
+        width: 30%;
+        color: rgb(0, 190, 204);
+    }
+    .author{
+        float: left;
+        width: 40%;
+        color: rgb(38, 139, 255);
+    }
+    .count-header{
+        margin-left: 2%;
+        width: 100%;
+        background-color: coral;
+    }
+    .count-header>h3{
+        font-size: 35px;
+    }
+    .count-inner{
+        float: left;
+        width: 20%;
+        margin-left: 10px;
+        text-align: center;
+    }
+    .count-inner>li{
+        float: left;
+        width: 100%;
+        font-size: 20px;
+    }
+    .count-body{
+        margin-left: 5%;
+        font-weight: 900;
+        font-size: 25px;
+        background-color: darkorange;
+        height: 40px;
+        line-height: 40px;
+        width: 90%;
+    }
 }

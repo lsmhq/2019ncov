@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './menu.css'
 import {NavLink} from 'react-router-dom';
-import Message from './Message';
 import '../../animate.css';
 export default class Menu extends Component {
     render() {
@@ -9,12 +8,9 @@ export default class Menu extends Component {
             <div className='menu'>            
                     <ul className='nameUl-outer'>
                     {/* onClick={this.slideOutUp} */}
-                        <li className='name-outer'><NavLink to='/all' activeClassName='active-outer' >全国疫情</NavLink></li>
-                        <li className='name-outer'><NavLink to='/believe' activeClassName='active-outer'>谣言鉴别</NavLink></li>
-                        <li className='name-outer'>
-                            <NavLink to='/city' activeClassName='active-outer'>省份详情</NavLink>
-                            <Message/>
-                        </li>
+                        <li className='name-outer'><NavLink to='/city' activeClassName='active-outer'>省份详情</NavLink></li>
+                        <li className='name-outer'><NavLink to='/all' activeClassName='active-outer' >局势图表</NavLink></li>
+                        <li className='name-outer'><NavLink to='/believe' activeClassName='active-outer'>破除谣言</NavLink></li>
                         <li className='name-outer'><NavLink to='/news' activeClassName='active-outer'>实时播报</NavLink></li>
                     </ul>
             </div>

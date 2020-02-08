@@ -23,12 +23,12 @@ export default class Yaoyan extends Component {
                     {
                         this.state.data.map(val=>{
                             return(
-                            <div className='container-yaoyan zoomIn animated'>
+                            <div className='container-yaoyan fadeIn animated'>
                                 <img src={val.imgsrc} width='120px'/>
                                 <h3>{val.title}</h3>
                                 <span>{val.explain}</span>
                                 <p className='time' >{val.date}</p>
-                                <p className='author'>{val.author}</p>
+                                <p className='author' style={{width:'40%'}}>证明人:{val.author}</p>
                             </div>)
                         })
                     }
