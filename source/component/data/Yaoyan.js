@@ -28,7 +28,7 @@ export default class Yaoyan extends Component {
                                 <h3>{val.title}</h3>
                                 <span>{val.explain}</span>
                                 <p className='time' >{val.date}</p>
-                                <p className='author' style={{width:'40%'}}>证明人:{val.author}</p>
+                                <p className='author' style={{width:'40%'}}>证 : {val.author.length>=6?val.author.slice(0,6)+'....':val.author}</p>
                             </div>)
                         })
                     }

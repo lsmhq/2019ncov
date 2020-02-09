@@ -6,8 +6,8 @@ export default class City extends Component {
             <div>
                 <ul>
                     <li>
-                        <div className='animated fadeIn'>
-                            <a style={{color:'black'}} name={this.props.provinceShortName}><h1 className='city'>{this.props.provinceName}</h1></a>
+                        <div className='animated fadeIn' >
+                            <h1 className='city' id={this.props.provinceShortName}>{this.props.provinceName}</h1>
                             <ul className='head'>
                                 <li>确诊</li>
                                 <li>{this.props.confirmedCount}</li>
