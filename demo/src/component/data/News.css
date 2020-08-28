@@ -1,0 +1,106 @@
+@media screen and (min-width:700px) and (max-width:3000px){
+    .news-container{
+        width: 80%;
+        height: 40%;
+        margin-left: 10%;
+        transition: all 0.2s linear;
+        margin-top: 30px;
+    }
+    .news-container:hover{
+        transition: all 0.2s linear;
+        background-color: rgb(231, 231, 231);
+        box-shadow: 3px 3px 10px 3px rgb(224, 224, 224);
+    }
+    .news-header{
+        width: 100%;
+        height: 20%;
+        line-height: 50%;
+    }
+    .news-header>h3{
+        font-size: 25px;
+        float: left;
+        margin-left: 5%;
+        margin-top: 3%;
+        cursor: pointer;
+    }
+    .news-header>h3:hover{
+        text-decoration: underline rgb(255, 0, 0);
+        color: rgb(255, 183, 0);
+    }
+    .news-header>p{
+        float: right;
+        margin-top: 3%;
+        margin-right: 10%;
+    }
+    #source-news{
+        color: deepskyblue;
+        font-weight: 900;
+    }
+    .news-body{
+        float: left;
+        text-indent: 40px;
+        line-height: 40px;
+        width: 85%;
+        margin-left: 5%;
+    }
+    .position{
+        float: right;
+        margin-right: 10%;
+        color: coral;
+        font-size: 20px;
+        font-weight: 900;
+    
+    }
+}
+@media screen and (max-width:700px){
+    .news-container{
+        width: 95%;
+        height: inherit;
+        margin-left: 2%;
+        transition: all 0.2s linear;
+        margin-top: 30px;
+    }
+    .news-header{
+        width: 100%;
+        height: 20%;
+        line-height: 200%;
+        
+    }
+    .news-header>h3{
+        font-size: 20px;
+        float: left;
+        margin-left: 5%;
+        margin-top: 3%;
+        cursor: pointer;
+        text-decoration: underline rgb(255, 0, 0);
+        
+    }
+    .news-header>h3:hover{
+        text-decoration: underline rgb(255, 0, 0);
+        color: rgb(255, 183, 0);
+    }
+    .news-header>p{
+        float: right;
+        margin-top: 3%;
+        margin-right: 10%;
+    }
+    #source-news{
+        color: deepskyblue;
+        font-weight: 900;
+    }
+    .news-body{
+        float: left;
+        text-indent: 40px;
+        line-height: 40px;
+        width: 95%;
+        margin-left: 5%;
+    }
+    .position{
+        float: right;
+        margin-right: 10%;
+        color: coral;
+        font-size: 20px;
+        font-weight: 900;
+    
+    }
+}
