@@ -6,67 +6,141 @@ import 'echarts/lib/component/title';
 import 'echarts/lib/component/legend';
 import 'echarts/lib/component/markPoint';
 import ReactEcharts from 'echarts-for-react';
-
+import china from 'echarts/map/json/china.json';
+import echarts from 'echarts';
+echarts.registerMap('china',china);
 export default class China extends React.Component {
     constructor(){
         super();
         this.state = {
             option:{}
         }
-    }
-    getOption =()=> {
-        //获取今天日期
-        var date = new Date();
-        var toDay = date.getFullYear()+'-'+(parseInt(date.getMonth())+1)+'-'+date.getDate();
-        fetch('https://api.tianapi.com/txapi/ncov/index?key=285ed712e35d23a3caa2a5e9c62c2574').then(res=>{res.json()}).then(data=>{
-            console.log(data);
-        })
-        let option = {
-          title:{
-            text:'我国疫情走势月表',
-            y:'bottom',
-            x:'center'
-          },
-          tooltip:{
-            trigger:'axis',
-          },
-          legend: {
-            data:['感染病例','死亡病例','治愈病例']
-        },
-          xAxis:{
-            data:['周一','周二','周三','周四','周五','周六','周日']
-          },
-          yAxis:{
-            type:'value'
-          },
-          series:[
-            {
-              name:'感染病例',
-              type:'line',   //这块要定义type类型，柱形图是bar,饼图是pie
-              data:[1000,2000,1500,3000,2000,1200,800]
-            },
-            {
-                name:'死亡病例',
-                type:'line',
-                data:[0,10,12,1000,5000,1200,800]
-            },
-            {
-                name:'治愈病例',
-                type:'line',
-                data:[1000,2000,1500,3000,2000,1200,800]
-            }
-          ]
-        }
-       return option
-      }
+    };
+    
     componentDidMount(){
-
+     
+     let option = {
+        title : {
+            text: '疫情地图',
+            subtext: '当日信息(含境外输送)',
+            left: 'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: function(params) {
+              var res = params.name+'<br/>';
+              var myseries = option.series;
+              for (var i = 0; i < myseries.length; i++) {
+                for(var j=0;j<myseries[i].data.length;j++){
+                  if(myseries[i].data[j].name==params.name){
+                    res+=myseries[i].name +' : '+myseries[i].data[j].value+'</br>';
+                  }
+                }
+              }
+                return res;
+            }
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data:['现存','死亡','治愈','总数']
+        },
+        toolbox: {
+            show: true,
+            orient : 'vertical',
+            left: 'right',
+            top: 'center',
+            feature : {
+                mark : {show: true},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        series : [
+            {
+                name: '现存',
+                type: 'map',
+                mapType: 'china',
+                roam: false,
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                data:[]
+            },
+            {
+                name: '死亡',
+                type: 'map',
+                mapType: 'china',
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                data:[]
+            },
+            {
+                name: '治愈',
+                type: 'map',
+                mapType: 'china',
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                data:[]
+            },
+            {
+              name: '总数',
+              type: 'map',
+              mapType: 'china',
+              roam: false,
+              label: {
+                  normal: {
+                      show: false
+                  },
+                  emphasis: {
+                      show: true
+                  }
+              },
+              data:[]
+          }
+        ],
+        visualMap: {
+            min: 0,
+            max: 4000,
+            left: 'left',
+            top: 'bottom',
+            text:['特别严重','不可小觑'],           // 文本，默认为数值文本
+            calculable : false
+        },
+    };
+    fetch('https://api.tianapi.com/txapi/ncovcity/index?key=285ed712e35d23a3caa2a5e9c62c2574').then(res=>res.json()).then(data=>{
+      data.newslist.map(val=>{
+        option.series[0].data.push({name:val.provinceShortName,value:val.currentConfirmedCount});
+        option.series[1].data.push({name:val.provinceShortName,value:val.deadCount});
+        option.series[2].data.push({name:val.provinceShortName,value:val.curedCount});
+        option.series[3].data.push({name:val.provinceShortName,value:val.confirmedCount});
+      })
+    //   console.log(option);
+      this.setState({option:option});
+    //   console.log(this.state.option);
+    });
     }
     render() {
         return (
             <div style={{height:'100%'}}>
-                正在更新中
-                <ReactEcharts option={this.state.option}  style={{height:'80%',top:'10%'}}/>
+                <ReactEcharts option={this.state.option} className='fadeIn animated' style={{height:'80%',width:'80%',top:'10%',left:'10%'}}/>
             </div>
         )
     }

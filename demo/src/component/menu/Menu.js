@@ -13,7 +13,7 @@ export default class Menu extends Component {
                         <li className='name-outer'><NavLink to='/believe' activeClassName='active-outer'>破除谣言</NavLink></li>
                         <li className='name-outer'><NavLink to='/news' activeClassName='active-outer'>实时播报</NavLink></li>
                         <li className='name-outer'><NavLink to='/echarts' activeClassName='active-outer'>世界统计</NavLink></li>
-                        <li className='name-outer'><NavLink to='/china' activeClassName='active-outer'>我国走势</NavLink></li>
+                        <li className='name-outer'><NavLink to='/china' activeClassName='active-outer'>疫情地图</NavLink></li>
                     </ul>
             </div>
         )

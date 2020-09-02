@@ -13,6 +13,7 @@ export default class CityMenu extends Component {
     }
     fetchData = (url)=>{
         fetch(url).then(res=>res.json()).then(data=>{
+            // console.log(data);
             this.setState({
                 data:data.newslist
             })
@@ -33,16 +34,25 @@ export default class CityMenu extends Component {
         };
     }
     render() {
-        return (
+        // console.log(this.state.data);
+        if(this.state.data.length>0){
+            return (
             <div className='cityMenuInner'>
                 <ul>
                     {
                         this.state.data.map(val=>{
-                           return (<li className='cityName' key={val.provinceShortName} onClick={(e)=>{this.scrollIntoViewCity(e)}}>{val.provinceShortName}</li>)
+                            return (<li className='cityName' key={val.provinceShortName} onClick={(e)=>{this.scrollIntoViewCity(e)}}>{val.provinceShortName}</li>)
                         })
+
                     }
                 </ul>
             </div>
         )
+        }else if(this.state.data.length<=0){
+            return(
+                <div>正在加载或者服务器正在维护...</div>
+            )
+        }
+
     }
 }

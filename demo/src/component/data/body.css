@@ -189,9 +189,6 @@ ul,li{
         width: 100%;
         font-size: 15px;
     }
-    .container-yaoyan>img{
-        display: none;
-    }
     .container-yaoyan>span{
         float: right;
         color: red;

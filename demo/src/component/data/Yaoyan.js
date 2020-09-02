@@ -22,14 +22,25 @@ export default class Yaoyan extends Component {
                 <ul>
                     {
                         this.state.data.map(val=>{
-                            return(
-                            <div className='container-yaoyan fadeIn animated'>
-                                <img src={val.imgsrc} width='120px'/>
-                                <h3>{val.title}</h3>
-                                <span>{val.explain}</span>
-                                <p className='time' >{val.date}</p>
-                                <p className='author' style={{width:'40%'}}>证 : {val.author.length>=6?val.author.slice(0,6)+'....':val.author}</p>
-                            </div>)
+                            if(window.innerWidth>=700){
+                                return(
+                                    <div className='container-yaoyan fadeIn animated'>
+                                        <img src={val.imgsrc} className='fadeIn animated' width='120px' height='70%'/>
+                                        <h3>{val.title}</h3>
+                                        <span>{val.explain}</span>
+                                        <p className='time'>{val.date}</p>
+                                        <p className='author' style={{width:'40%'}}>证 : {val.author.length>=6?val.author.slice(0,6)+'....':val.author}</p>
+                                    </div>)
+                            }else if(window.innerWidth < 700){
+                                return(
+                                    <div className='container-yaoyan fadeIn animated'>
+                                        <h3>{val.title}</h3>
+                                        <span>{val.explain}</span>
+                                        <p className='time'>{val.date}</p>
+                                        <p className='author' style={{width:'40%'}}>证 : {val.author.length>=6?val.author.slice(0,6)+'....':val.author}</p>
+                                    </div>)
+                            }
+
                         })
                     }
                 </ul>

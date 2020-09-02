@@ -15,7 +15,7 @@ export default class Line extends React.Component{
     }
     componentDidMount(){
         fetch('https://api.tianapi.com/txapi/ncovabroad/index?key=285ed712e35d23a3caa2a5e9c62c2574').then(res=>res.json()).then(data=>{
-            console.log(data);
+            // console.log(data);
             let option = {
                 tooltip:{
                   trigger:'axis',
@@ -45,7 +45,7 @@ export default class Line extends React.Component{
                     data:[],
                     itemStyle:{
                         normal:{
-                            color:'orange'
+                            color:'Coral'
                         }
                     }
                   },
@@ -65,14 +65,13 @@ export default class Line extends React.Component{
                       data:[],
                       itemStyle:{
                         normal:{
-                            color:'MediumSpringGreen'
+                            color:'ForestGreen'
                         }
                     }
-
                   }
                 ]
               }
-              data.newslist.map(val=>{
+              data.newslist.map((val,index)=>{
                   if(parseInt(val.confirmedCount)>100000){
                     option.xAxis.data.push(val.provinceName);
                     option.series[0].data.push(val.currentConfirmedCount);
@@ -82,14 +81,14 @@ export default class Line extends React.Component{
               })
               this.setState({
                   option:option
-              })
+              });
         })
     }
 
   render(){
     return(
       <div style={{height:'100%'}}>
-        <ReactEcharts option={this.state.option}  style={{height:'90%',top:'5%'}}/>
+        <ReactEcharts option={this.state.option} className='animated fadeIn'  style={{height:'90%',top:'5%'}}/>
       </div>
     )
   }

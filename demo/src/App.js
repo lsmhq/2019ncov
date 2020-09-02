@@ -11,11 +11,10 @@ function App() {
       <Router >      
         <Header/>
         <Menu/>
-        <Body/>{console.log('************************\n祝疫情早日结束\n祝工作在一线的白衣天使身体健康\n再也不要有人牺牲\n*****************************')}
+        <Body/>
         <Footer/>
       </Router>
     </div>
   );
 }
-
 export default App;
