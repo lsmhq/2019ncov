@@ -11,7 +11,7 @@ export default class Body extends Component {
         return (
             <div className='body'>
                 <Route path='/all' component={All} exact/>    
-                <Route path='/believe' component={Every} exact/> 
+                {/* <Route path='/believe' component={Every} exact/>  */}
                 <Route path='/city' component={Citys} exact/>
                 <Route path='/news' component={News} exact/>
                 <Route path='/echarts' component={Echarts} exact/>

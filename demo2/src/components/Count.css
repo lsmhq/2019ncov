@@ -1,0 +1,105 @@
+.count{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 100px;
+    border-radius: 6px;
+    padding:5px 0 10px 0;
+    margin-left: 9px;
+    margin-top: 9px;
+}
+.count_title1{
+    padding-top: 10px;
+    font-size: 16px;
+    font-weight: bolder;
+    color: rgb(61, 61, 61);
+}
+.count_title2{
+    font-size: small;
+    padding-top: 10px;
+    font-weight: bold;
+    color: rgb(126, 126, 126);
+}
+.count_title2>span:last-child{
+    padding-left: 5px;
+}
+.count_title3{
+    font-size: small;
+    padding-top: 10px;
+}
+.count_title3>span:last-child{
+    font-weight: bolder;
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+/* card */
+
+.card{
+    width: 100%;
+    padding: 5px 0px 5px 0px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #c0c0c0;
+}
+.card_count{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.card_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    border-radius: 2px;
+    margin:5px;
+}
+.card_more{
+    width: 20px;
+}
+.card_more img{
+    width: 100%;
+    transition: all ease 0.3s;
+}
+.more{
+    transition: height ease 0.3s;
+    overflow-y: scroll;
+    width: 85%;
+}
+.more_card{
+    padding: 10px 5px 10px 5px;
+}
+.more_card_name{
+    font-weight: bolder;
+    
+}
+.more_card_count{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 5px;
+}
+.more_card_count_count{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:5px;
+}
+.more_card_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    border-radius: 2px;
+    margin:5px;
+}

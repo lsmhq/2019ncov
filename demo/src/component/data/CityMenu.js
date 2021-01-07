@@ -8,14 +8,14 @@ export default class CityMenu extends Component {
         }
     }
     componentDidMount(){
-        this.fetchData('https://api.tianapi.com/txapi/ncovcity/index?key=285ed712e35d23a3caa2a5e9c62c2574')
+        this.fetchData('https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5')
         this.heightCenter()
     }
     fetchData = (url)=>{
-        fetch(url).then(res=>res.json()).then(data=>{
+        fetch(url,{mode:'cors'}).then(res=>res.json()).then(data=>{
             // console.log(data);
             this.setState({
-                data:data.newslist
+                data:JSON.parse(data.data).areaTree
             })
         })
     }
@@ -41,7 +41,7 @@ export default class CityMenu extends Component {
                 <ul>
                     {
                         this.state.data.map(val=>{
-                            return (<li className='cityName' key={val.provinceShortName} onClick={(e)=>{this.scrollIntoViewCity(e)}}>{val.provinceShortName}</li>)
+                            return (<li className='cityName' key={val.name} onClick={(e)=>{this.scrollIntoViewCity(e)}}>{val.name}</li>)
                         })
 
                     }

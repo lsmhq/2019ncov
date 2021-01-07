@@ -12,8 +12,8 @@ export default class Citys extends Component {
         }
     }
     componentDidMount(){
-        this.fetchData('https://api.tianapi.com/txapi/ncovcity/index?key=285ed712e35d23a3caa2a5e9c62c2574');
-        this.fetchCount('https://api.tianapi.com/txapi/ncov/index?key=285ed712e35d23a3caa2a5e9c62c2574');
+        this.fetchData('https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5');
+        // this.fetchCount('https://api.tianapi.com/txapi/ncov/index?key=285ed712e35d23a3caa2a5e9c62c2574');
     }
     fetchData = (url)=>{
         fetch(url).then(res=>res.json()).then(data=>{
