@@ -3,9 +3,9 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: #282c34;
+  background-color: #eeeeee;
 }
-.App p{
+.App p,a{
   font-size: 30px;
   color: white;
 }
