@@ -1,10 +1,14 @@
-const proxy = require("http-proxy-middleware");
- 
-module.exports = function(app) {
+const {createProxyMiddleware } = require('http-proxy-middleware');
+
+module.exports = function (app) {
   app.use(
-    proxy("/api", {
-      target: "", // 服务器域名
-      changeOrigin: true
-    })
-  );
+    createProxyMiddleware(
+      '/api',
+      {
+        target: 'http://115.28.139.125:8088',
+        // target:'https://www.bilibili.com',
+        changeOrigin: true
+      }
+    )
+  )
 };
