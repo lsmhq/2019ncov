@@ -5,7 +5,7 @@ module.exports = function (app) {
     createProxyMiddleware(
       '/api',
       {
-        target: 'http://115.28.139.125:8088',
+        target: 'https://www.bilibili.com',
         // target:'https://www.bilibili.com',
         changeOrigin: true
       }

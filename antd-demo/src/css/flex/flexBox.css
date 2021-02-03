@@ -1,0 +1,20 @@
+.flexBox{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding:20px 30px 20px 30px;
+}
+.center{
+    align-items: center;
+    justify-content: center;
+}
+.spece-around{
+    align-items: center;
+    justify-content: space-around;
+}
+.column{
+    flex-direction: column;
+}
+.row{
+    flex-direction: row;
+}

@@ -1,37 +1,34 @@
 import Axios from 'axios';
 
 // 拦截器
-
 Axios.interceptors.request.use(config=>{
     
     config.data = {
         ...config.data,
         "token": localStorage.getItem('token'),
     }
-
 })
 
 Axios.interceptors.response.use(response=>{
-    console.log('axios-http.js ---->',response)
+    console.log('log from axios-http.js ---->',response);
 },error => {
-    if(error.response.status === 401){
-
+    if(error.response.status != 401){
+        console.error('api error log from axios-http.js ---->',error.response);
     }   
     return Promise.resolve(error.response)
 });
 
 // 请求
-const Api = {
+const Request = {
     get: (url,params)=>{
-        params.token = token;
         return (Axios({
             url:url,
             method:'GET',
             params:params
         }))
     },
+
     post: (url,params)=>{
-        params.token = token;
         return (Axios({
             url:url,
             method:'POST',
@@ -40,4 +37,4 @@ const Api = {
     }
 };
 
-export default Api;
+export default Request;
