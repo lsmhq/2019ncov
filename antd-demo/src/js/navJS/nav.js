@@ -1,0 +1,25 @@
+export const nav = {
+    navConfig:[
+        {
+            name:'转一转',
+            icon:'home',
+            url:'/main',
+            key:'go'
+        },{
+            name:'消息',
+            icon:'',
+            url:'/chat',
+            key:'msg'
+        },{
+            name:'购物车',
+            icon:'',
+            url:'/shopcar',
+            key:'shopCar'
+        },{
+            name:'个人中心',
+            icon:'',
+            url:'/mine',
+            key:'mine'
+        },
+    ]
+}

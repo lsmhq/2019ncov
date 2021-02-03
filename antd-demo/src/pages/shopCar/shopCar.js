@@ -1,21 +1,18 @@
 import React, { Component } from 'react'
-
+import BottomNav from '../../components/BottomNav'
+import {nav} from '../../js/navJS/nav'
 export default class login extends Component {
     constructor(){
-        super()
+        super();
         this.state = {
-
+            items:nav.navConfig
         }
-    }
-
-    componentDidMount(){
-        console.log(this.props.location.search)
     }
 
     render() {
         return (
             <div>
-                login
+                <BottomNav history={this.props.history} active={2} items={this.state.items}/>
             </div>
         )
     }

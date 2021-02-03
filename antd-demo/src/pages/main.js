@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import BottomNav from '../components/BottomNav'
+import '../css/main/main.css'
+import {nav} from '../js/navJS/nav'
 export default class main extends Component {
     constructor(){
         super();
         this.state = {
-
+            items: nav.navConfig
         }
     }
 
@@ -13,16 +16,9 @@ export default class main extends Component {
 
     render() {
         return (
-            <div onClick={this.goToPage}>
-                首页
+            <div className="main">
+                <BottomNav history={this.props.history} active={0} items={this.state.items}/>
             </div>
         )
-    }
-
-    goToPage = ()=>{
-        this.props.history.push({
-            pathname:'/login',
-            search:'?id=10086'
-        })
     }
 }
