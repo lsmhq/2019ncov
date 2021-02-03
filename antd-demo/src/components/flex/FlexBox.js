@@ -17,7 +17,7 @@ export default class FlexBox extends Component {
     style = ()=>{
         let className = '';
         let {center, direction} = this.props;
-        console.log(center, direction)
+        // console.log(center, direction)
         // 居中
         if(center){
             className += ' center';
@@ -25,9 +25,9 @@ export default class FlexBox extends Component {
             className += ' speace-around';
         }
         // 方向
-        if(direction == 'row'){
+        if(direction === 'row'){
             className += ' row';
-        }else if(direction == 'column'){
+        }else if(direction === 'column'){
             className += ' column';
         }
         if(this.props.className)
@@ -36,11 +36,12 @@ export default class FlexBox extends Component {
     }
 
     goTo = (e)=>{
-        console.log(this.props.history)
+        // console.log(this.props.history)
         e.stopPropagation()
         
         if(this.props.url){
             // document.location.hash = this.props.url
+            console.log(this.props.url)
             this.props.history.replace({
                 pathname:this.props.url
             })

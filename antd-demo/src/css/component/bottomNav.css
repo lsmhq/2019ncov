@@ -12,6 +12,7 @@
 }
 .bottom-nav-item span{
     font-size: 28px;
+    padding-bottom: 10px;
 }
 .bottom-nav-item div{
     height: 100%;
@@ -20,7 +21,7 @@
 }
 
 .icon-main{
-
+    
 }
 .icon-chat{
 

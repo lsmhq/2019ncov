@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import FlexBox from './flex/FlexBox'
 import '../css/component/bottomNav.css'
-import { Icon, TabBar } from 'antd-mobile'
 export default class BottomNav extends Component {
     constructor(){
         super()

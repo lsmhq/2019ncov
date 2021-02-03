@@ -7,7 +7,6 @@ import ShopCar from './pages/shopCar/shopCar'; // 登录页
 import Mine from './pages/person/mine'; // 个人中心
 import Main from './pages/main'; // 首页
 import Chat from './pages/chat/Chat'; // 聊天
-import  BottomNav from './components/BottomNav'// 底部导航
 import React, { Component } from 'react'
 
 export default class App extends Component {

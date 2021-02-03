@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import BottomNav from '../components/BottomNav'
-import '../css/main/main.css'
+// import '../css/main/main.css'
 import {nav} from '../js/navJS/nav'
+import '../scss/main.scss'
 export default class main extends Component {
     constructor(){
         super();
