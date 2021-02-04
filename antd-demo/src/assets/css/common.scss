@@ -1,0 +1,193 @@
+
+
+$ipx_bottom: 64px;
+$nor_bottom: 0px;
+
+@mixin ipx-full-vh($cv, $tarHei : '100vh') {
+	height: calc( #{$tarHei} - #{$ipx_bottom} - #{$cv} ) !important;
+}
+@mixin nor-full-vh($cv, $tarHei : '100vh') {
+	height: calc( #{$tarHei} - #{$cv} ) !important;
+}
+
+@mixin ipx-max-vh($cv, $tarHei : '100vh') {
+	max-height: calc( #{$tarHei} - #{$ipx_bottom} - #{$cv} ) !important;
+}
+@mixin nor-max-vh($cv, $tarHei : '100vh') {
+	max-height: calc( #{$tarHei} - #{$cv} ) !important;
+}
+
+@mixin ipx-buttom-height($cv) {
+	height: $ipx_bottom + $cv  !important;
+}
+@mixin nor-buttom-height($cv) {
+	height: $cv !important;
+}
+
+@mixin ipx-buttom($cv) {
+	bottom: $ipx_bottom + $cv  !important;
+}
+@mixin nor-buttom($cv) {
+	bottom: $cv !important;
+}
+
+@mixin bak_img(){
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+@mixin gray_img(){
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray;
+}
+/** 基础蒙层 **/
+@mixin base_mask(){
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+@mixin ios_touch() {
+	-webkit-overflow-scrolling: touch;
+}
+
+@mixin one_line() {
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+@mixin two_line($lh:'9999') {
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	@if $lh != '9999' {
+		line-height: #{$lh}px;
+		line-height: #{$lh}px/p;
+	}
+}
+@mixin thr_line($lh:'9999') {
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	@if $lh != '9999' {
+		line-height: #{$lh}px;
+		line-height: #{$lh}px/p;
+	}
+}
+
+@mixin font_scm($size, $color:'#000000', $important: '') {
+	font-family: "PingFang-SC-Medium";
+	@include font_size($size, $important);
+	color: $color;
+}
+@mixin font_scb($size, $color:'#000000', $important: '') {
+	font-family: "PingFang-SC-Bold";
+	@include font_size($size, $important);
+	color: $color;
+}
+@mixin font_scr($size, $color:'#000000', $important: '') {
+	font-family: "PingFang-SC-Regular";
+	@include font_size($size, $important);
+	color: $color;
+}
+@mixin font_sch($size, $color:'#000000', $important: '') {
+	font-family: "PingFang-SC-Heavy";
+	@include font_size($size, $important);
+	color: $color;
+}
+@mixin font_sxh($size, $color:'#000000', $important: '') {
+	font-family: "STXihei";
+	@include font_size($size, $important);
+	color: $color;
+}
+
+
+@mixin font_size($size, $important) {
+	font-size: #{$size}px #{$important};
+	line-height: #{$size}px/p;
+	line-height: #{$size}px;
+}
+
+// @mixin scroll-height($aa){
+// 	.scroll_height{
+// 		@include nor-full-vh(200px);
+// 	}
+// 	.scroll_height_ipx{
+// 		@include ipx-full-vh(200px);
+// 	}
+// 	.popup_scroll_height{
+// 		@include nor-full-vh(166px, 50vh);
+// 	}
+// 	.popup_scroll_height_ipx{
+// 		@include ipx-full-vh(166px, 50vh);
+// 	}
+// }
+
+@mixin ball-tag() {
+	@keyframes ipx_ballMove{
+		25%{
+			transform: translate(-45px, -75px);
+			-webkit-transform: translate(-45px, -75px);
+		}
+		35%{
+			transform: translate(-60px, -100px);
+			-webkit-transform: translate(-60px, -100px);
+		}
+		85%{
+			top: calc(100vh - 150px - #{$ipx_bottom});
+			left: 600px;
+		}
+		100%{
+			top: calc(100vh - 55px - #{$ipx_bottom});
+			left: 660px;
+		}
+	}
+	@keyframes nor_ballMove{
+		25%{
+			transform: translate(-45px, -75px);
+			-webkit-transform: translate(-45px, -75px);
+		}
+		35%{
+			transform: translate(-60px, -100px);
+			-webkit-transform: translate(-60px, -100px);
+		}
+		85%{
+			top: calc(100vh - 150);
+			left: 600px;
+		}
+		100%{
+			top: calc(100vh - 55px);
+			left: 660px;
+		}
+	}
+}
+
+
+
+// @mixin keyframes($animationName) {
+// 	@-webkit-keyframes #{$animationName} {
+// 		 @content;
+// 	}
+// 	@-moz-keyframes #{$animationName} {
+// 		 @content;
+// 	}
+// 	@-o-keyframes #{$animationName} {
+// 		 @content;
+// 	}
+// 	@keyframes #{$animationName} {
+// 		 @content;
+// 	}
+// }
+
+
