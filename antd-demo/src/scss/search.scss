@@ -1,0 +1,11 @@
+.search{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    .search-body{
+        background-color: white;
+        height: 100%;
+        width: 100vw;
+        overflow-y: scroll;
+    }
+}

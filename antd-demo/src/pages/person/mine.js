@@ -14,6 +14,7 @@ export default class mine extends Component {
     render() {
         return (
             <div>
+                <div>个人中心</div>
                 <BottomNav history={this.props.history} active={3} items={this.state.items}/>
             </div>
         )

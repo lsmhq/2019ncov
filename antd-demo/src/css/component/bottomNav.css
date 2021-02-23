@@ -1,9 +1,10 @@
 .bottom-nav{
     height: 110px;
-    position: fixed;
+    position: absolute;
     width: 100vw;
     bottom: 0;
     background-color: white;
+    border-top: gray solid 1px;
 }
 .bottom-nav-item{
     width: 20%;
@@ -11,7 +12,7 @@
     padding:0px 20px;
 }
 .bottom-nav-item span{
-    font-size: 28px;
+    font-size: 24px;
     padding-bottom: 10px;
 }
 .bottom-nav-item div{
@@ -19,28 +20,6 @@
     width: 100%;
     padding-top: 10px;
 }
-
-.icon-main{
-    
-}
-.icon-chat{
-
-}
-.icon-shopCar{
-
-}
-.icon-mine{
-
-}
-.icon-main-active{
-
-}
-.icon-chat-active{
-
-}
-.icon-shopCar-active{
-
-}
-.icon-mine-active{
-
+.bottom-nav-item div>img{
+    width: 48px;
 }

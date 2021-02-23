@@ -1,7 +1,7 @@
 export const nav = {
     navConfig:[
         {
-            name:'转一转',
+            name:'首页',
             icon:'home',
             url:'/main',
             key:'go'

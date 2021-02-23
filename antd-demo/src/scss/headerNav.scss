@@ -1,0 +1,20 @@
+.header-nav{
+    width: 100vw;
+    position: relative;
+    top: 0;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: gray 1px solid;
+    color: rgb(104, 104, 104);
+    font-size: 30px;
+    .header-back{
+        width: 80px;
+        img{
+            width: 36px;
+            float: left;
+        }
+    }
+    .header-title{
+        width: 70%;
+    }
+}

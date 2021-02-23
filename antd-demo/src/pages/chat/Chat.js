@@ -13,6 +13,7 @@ export default class Chat extends Component {
     render() {
         return (
             <div>
+                <div>消息列表</div>
                 <BottomNav history={this.props.history} active={1} items={this.state.items}/>
             </div>
         )

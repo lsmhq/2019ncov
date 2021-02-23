@@ -21,16 +21,16 @@ export default class BottomNav extends Component {
                         return(
                             <FlexBox
                                center={true}
-                               direction="column" 
+                               direction="column"
                                key={item.key}
                                url={item.url}
                                history={this.props.history}
                                className="bottom-nav-item"
                             >
-                                <div></div>
+                                <div><img src={idx === this.props.active ? `/img/nav-ac/nav-ac${idx}.png` : `/img/nav/nav${idx}.png`}/></div>
                                 <span
                                     style={{
-                                        color:(idx == this.props.active)?'blue':'gray'
+                                        color:(idx == this.props.active)?'#fa7202':'gray'
                                     }}
                                 >{item.name}</span>
                             </FlexBox>
