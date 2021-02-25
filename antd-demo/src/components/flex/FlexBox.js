@@ -49,6 +49,9 @@ export default class FlexBox extends Component {
         }else{
             return;
         }
+        if(this.props.click){
+            this.props.click()
+        }
     }
     render() {
         return (

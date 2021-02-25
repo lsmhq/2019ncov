@@ -48,6 +48,9 @@ export default class App extends Component {
       canGoBack:nav.canGoBack
     })
   }
+  toastMessage = (e)=>{
+    ToastAndroid.show(e,ToastAndroid.SHORT);
+  }
   render() {
     return (
       <AutoHeightWebView
@@ -58,7 +61,9 @@ export default class App extends Component {
       source={{uri: 'http://10.4.72.207:3000'}}
       scalesPageToFit={false}
       onNavigationStateChange={this.onNavigationStateChange}
-      
+      domStorageEnabled = {true}
+      onMessage = {this.toastMessage}
+      dataDetectorTypes = "all"
     />
     )
   }

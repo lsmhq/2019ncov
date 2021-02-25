@@ -1,22 +1,21 @@
 import Axios from 'axios';
 
 // 拦截器
-Axios.interceptors.request.use(config=>{
-    
-    config.data = {
-        ...config.data,
-        "token": localStorage.getItem('token'),
-    }
-})
+// Axios.interceptors.request.use(config=>{
+//     config.data = {
+//         ...config.data,
+//         "token": localStorage.getItem('token'),
+//     }
+// })
 
-Axios.interceptors.response.use(response=>{
-    console.log('log from axios-http.js ---->',response);
-},error => {
-    if(error.response.status != 401){
-        console.error('api error log from axios-http.js ---->',error.response);
-    }   
-    return Promise.resolve(error.response)
-});
+// Axios.interceptors.response.use(response=>{
+//     console.log('log from axios-http.js ---->',response);
+// },error => {
+//     if(error.response.status != 401){
+//         console.error('api error log from axios-http.js ---->',error.response);
+//     }   
+//     return Promise.resolve(error.response)
+// });
 
 // 请求
 const Request = {
