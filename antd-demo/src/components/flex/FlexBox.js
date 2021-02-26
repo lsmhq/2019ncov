@@ -49,15 +49,16 @@ export default class FlexBox extends Component {
         }else{
             return;
         }
-        if(this.props.click){
-            this.props.click()
-        }
     }
     render() {
         return (
             <div 
                 className={`flexBox${this.state.className}`}
-                onClick={(e)=>{this.goTo(e)}}
+                onClick={(e)=>{
+                    this.goTo(e);
+                    if(this.props.click)
+                        this.props.click(e);
+                }}
             >
                 {this.props.children}
             </div>

@@ -5,6 +5,7 @@ import '../scss/main.scss'
 import FlexBox from '../components/flex/FlexBox'
 import Util from '../js/util/util'
 import reqPost from '../js/api/api'
+import { Link } from 'react-router-dom'
 export default class main extends Component {
     constructor(){
         super();
@@ -50,17 +51,20 @@ export default class main extends Component {
                         {
                             this.state.list.map((val,idx)=>{
                                 return(
-                                    <FlexBox 
-                                        className="main-body-item"
-                                        key={idx}
-                                        direction="column"
-                                    >
-                                        <div className="imgContainer">
-                                            <img src={val.author?val.author.avatar_url:''}/>
-                                        </div>
-                                        <p>{val.title}</p>
-                                        <p>{val.last_reply_at}</p>
-                                    </FlexBox>
+                                    <Link to={"/goodDetail?id=" + val.id} className="goodLink">
+                                        <FlexBox 
+                                            className="main-body-item"
+                                            key={idx}
+                                            direction="column"
+                                            // click = {(e)=>{this.toDetail(e,val)}}
+                                        >
+                                            <div className="imgContainer">
+                                                <img src={val.author?val.author.avatar_url:''}/>
+                                            </div>
+                                            <p>{val.title}</p>
+                                            <p>{val.last_reply_at}</p>
+                                        </FlexBox>
+                                    </Link>
                                 )
                             })
                         }
@@ -80,6 +84,12 @@ export default class main extends Component {
             activeTab:idx
         },()=>{
             console.log(this.state.activeTab)
+        })
+    }
+    toDetail = (e,val)=>{
+        this.props.history.push({
+            pathname:`/goodDetail?id=${val.id}`,
+            state:{id:val.id}
         })
     }
     getData = ()=>{

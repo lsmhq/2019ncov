@@ -7,7 +7,10 @@
  */
 import {
   BackHandler,
-  ToastAndroid
+  ToastAndroid,
+  View,
+  StatusBar,
+  StyleSheet
 } from 'react-native';
 import AutoHeightWebView from 'react-native-autoheight-webview'
 
@@ -17,7 +20,9 @@ export default class App extends Component {
   constructor(){
     super();
     this.state = {
-      canGoBack:false
+      canGoBack:false,
+      barColor:'#6199ff',
+      progress:0
     }
   }
   componentDidMount(){
@@ -47,24 +52,53 @@ export default class App extends Component {
     this.setState({
       canGoBack:nav.canGoBack
     })
-  }
-  toastMessage = (e)=>{
-    ToastAndroid.show(e,ToastAndroid.SHORT);
+    if(nav.canGoBack){
+      this.setState({
+        barColor:'white'
+      })
+    }else{
+      this.setState({
+        barColor:'#6199ff'
+      })
+    }
   }
   render() {
     return (
-      <AutoHeightWebView
-      // originWhitelist={['*']}
-      ref="webView"
-      style={{flex:1}}
-      javaScriptEnabled={true}
-      source={{uri: 'http://10.4.72.207:3000'}}
-      scalesPageToFit={false}
-      onNavigationStateChange={this.onNavigationStateChange}
-      domStorageEnabled = {true}
-      onMessage = {this.toastMessage}
-      dataDetectorTypes = "all"
-    />
+      <View style={{flex:1}}>
+        <StatusBar  
+          // animated={true} //指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle和hidden  
+          hidden={false}  //是否隐藏状态栏。  
+          backgroundColor={this.state.barColor} //状态栏的背景色    
+        >  
+        </StatusBar>  
+        <View style={styles.titleBar}/>
+        <AutoHeightWebView
+          // originWhitelist={['*']}
+          ref="webView"
+          style={{flex:1}}
+          javaScriptEnabled={true}
+          source={{uri: 'http://daitianfang.1459.top/yjy'}}
+          scalesPageToFit={false}
+          onNavigationStateChange={this.onNavigationStateChange}
+          domStorageEnabled = {true}
+          onLoadProgress={({nativeEvent}) => this.setState(
+            {progress: nativeEvent.progress}
+        )}
+          // onMessage = {this.toastMessage}
+        />
+      </View>
     )
   }
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
+    titleBar: {
+        height: 64,
+        backgroundColor: '#ffc0cb',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+});
