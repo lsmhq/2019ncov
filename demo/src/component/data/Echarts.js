@@ -28,7 +28,7 @@ export default class Line extends React.Component{
                       formatter: function (value) {
                         //x轴的文字改为竖版显示
                         var str = value.split("");
-                        return str.join("\n");
+                        return str.join("");
                       }
                   }
                 },
@@ -72,7 +72,7 @@ export default class Line extends React.Component{
                 ]
               }
               data.newslist.map((val,index)=>{
-                  if(parseInt(val.confirmedCount)>100000){
+                  if(parseInt(val.confirmedCount)>1000000){
                     option.xAxis.data.push(val.provinceName);
                     option.series[0].data.push(val.currentConfirmedCount);
                     option.series[1].data.push(val.deadCount);

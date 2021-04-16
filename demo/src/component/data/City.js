@@ -21,15 +21,15 @@ export default class City extends Component {
                             <div className='container-citys'>
                                 <ul className='citys'>
                                     {
-                                        this.props.citys.map(val=>{
+                                        this.props.citys.map((val,idx)=>{
                                             return(
-                                                <div id='citys'>
-                                                    <h3>{val.cityName}</h3>
+                                                <div id='citys' key={idx}>
+                                                    <h3>{val.name}</h3>
                                                     <ul>
-                                                        <li>确诊:{val.confirmedCount}</li>
-                                                        <li>现存:{val.currentConfirmedCount}</li>
-                                                        <li>治愈:{val.curedCount}</li>
-                                                        <li>死亡:{val.deadCount}</li>
+                                                        <li>确诊:{val.total.confirm}</li>
+                                                        <li>现存:{val.total.nowConfirm}</li>
+                                                        <li>治愈:{val.total.heal}</li>
+                                                        <li>死亡:{val.total.dead}</li>
                                                     </ul>
                                                 </div>
                                             )

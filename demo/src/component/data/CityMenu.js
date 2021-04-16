@@ -8,18 +8,19 @@ export default class CityMenu extends Component {
         }
     }
     componentDidMount(){
-        this.fetchData('https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5')
+        this.fetchData('/g2/getOnsInfo?name=disease_h5')
         this.heightCenter()
     }
     fetchData = (url)=>{
         fetch(url,{mode:'cors'}).then(res=>res.json()).then(data=>{
             // console.log(data);
             this.setState({
-                data:JSON.parse(data.data).areaTree
+                data:JSON.parse(data.data).areaTree[0].children
             })
         })
     }
     scrollIntoViewCity = (e)=>{
+        // console.log(e.target.innerHTML)
         document.getElementById(e.target.innerHTML).scrollIntoView();
         let list = document.getElementsByClassName('cityName');
         for(let i = 0; i<list.length;i++){

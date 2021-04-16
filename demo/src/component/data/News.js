@@ -22,9 +22,10 @@ export default class News extends Component {
         return (
             <div className='news'>
                 {
-                    this.state.data.map(val=>{
+                    this.state.data.map((val, idx)=>{
                         return(
                         <Container
+                        key = {idx}
                         pubDateStr={val.pubDateStr}
                         title={val.title}
                         infoSource={val.infoSource}

@@ -118,19 +118,20 @@ export default class China extends React.Component {
         ],
         visualMap: {
             min: 0,
-            max: 4000,
+            max: 5000,
             left: 'left',
             top: 'bottom',
-            text:['特别严重','不可小觑'],           // 文本，默认为数值文本
+            text:['严重','轻微'],           // 文本，默认为数值文本
             calculable : false
         },
     };
-    fetch('https://api.tianapi.com/txapi/ncovcity/index?key=285ed712e35d23a3caa2a5e9c62c2574').then(res=>res.json()).then(data=>{
-      data.newslist.map(val=>{
-        option.series[0].data.push({name:val.provinceShortName,value:val.currentConfirmedCount});
-        option.series[1].data.push({name:val.provinceShortName,value:val.deadCount});
-        option.series[2].data.push({name:val.provinceShortName,value:val.curedCount});
-        option.series[3].data.push({name:val.provinceShortName,value:val.confirmedCount});
+    fetch('/g2/getOnsInfo?name=disease_h5').then(res=>res.json()).then(data=>{
+        let dataa = JSON.parse(data.data); 
+      dataa.areaTree[0].children.map(val=>{
+        option.series[0].data.push({name:val.name,value:val.total.nowConfirm});
+        option.series[1].data.push({name:val.name,value:val.total.dead});
+        option.series[2].data.push({name:val.name,value:val.total.heal});
+        option.series[3].data.push({name:val.name,value:val.total.confirm});
       })
     //   console.log(option);
       this.setState({option:option});
