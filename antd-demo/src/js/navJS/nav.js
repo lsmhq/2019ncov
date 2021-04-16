@@ -6,7 +6,7 @@ export const nav = {
             url:'/main',
             key:'go'
         },{
-            name:'消息',
+            name:'发布',
             icon:'',
             url:'/chat',
             key:'msg'

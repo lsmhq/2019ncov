@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     .good-body{
-        height: 100%;
+        height: 82vh;
         overflow: scroll;
         padding: 20px 30px;
         background-color: rgb(255, 255, 255);
@@ -40,5 +40,107 @@
                 left: -40px;
             }
         }
+        .title{
+            display: flex;
+            height: 90px;
+            line-height: 90px;
+            padding: 0px 40px;
+            justify-content: space-between;
+            .goodName{
+                font-size: 30px;
+                span{
+                    font-weight: bold;
+                }
+            }
+            .goodPrice{
+                font-size: 35px;
+                color: orange;
+                font-weight: bold;
+                
+            }
+        }
+        .title2{
+            display: flex;
+            height: 90px;
+            line-height: 90px;
+            padding: 0px 40px;
+            .soler{
+                width: 80px;
+                height: 80px;
+                border-radius: 80px;
+                overflow: hidden;
+                img{
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            .name{
+                font-size: 30px;
+                padding-left: 40px;
+                span{
+                    font-weight: bold;
+                }
+            }
+        }
+        .title3{
+            display: flex;
+            height: 50px;
+            align-items: center;
+            padding: 0px 40px;
+            font-size: 35px;
+            font-weight: bold;
+            margin-top: 30px;
+            .line{
+                width: 10px;
+                height: 50%;
+                background-color: rgb(255, 0, 0);
+            }
+            .titleT{
+                padding-left: 10px;
+            }
+        }
+        .content{
+            color: rgb(26, 26, 26);
+            font-size: 25px;
+            padding: 20px 30px;
+            line-height: 50px;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        .opBtn{
+            width: 100vw;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 10vh;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            .btnOne{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgb(233, 233, 233);
+                color: rgb(255, 72, 0);
+                font-size: 36px;
+            }
+            .btnTwo{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgb(255, 72, 0);
+                color: white;
+                font-size: 36px;
+
+            }
+        }
+
     }
 }

@@ -12,6 +12,7 @@ import Search from './pages/search'; // 搜索
 import goodDetail from './pages/good/goodDetail'; // 商品详情
 import React, { Component } from 'react';// 基础
 import Login from './pages/login/Login'; // 登录
+import Mygood from './pages/person/Mygood'; // 登录
 export default class App extends Component {
   constructor(){
     super()
@@ -46,6 +47,9 @@ export default class App extends Component {
             
             {/* 登录 */}
             <Route path='/login' component={Login}/>
+
+            {/* 我的商品 */}
+            <Route path='/myGood' component={Mygood}/>
 
             {/*重定向*/}
             <Redirect from={'/*'} exact to='/main' replace/>

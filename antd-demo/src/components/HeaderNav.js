@@ -9,9 +9,9 @@ export default class HeaderNav extends Component {
                 direction='row'
                 className="header-nav"
             >
-                <div className="header-back" onClick={this.back}><img src="/img/headerNav/back.png" alt="back"/></div>
+                <div className="header-back" style={{opacity:this.props.back?1:0}} onClick={this.back}><img src="/img/headerNav/back.png" alt="back"/></div>
                 <div className="header-title">{this.props.title}</div>
-                <div onClick={this.op} style={{opacity:this.props.icon?1:0}}>图标</div>
+                <div onClick={this.op} style={{opacity:this.props.icon?1:0}}>{this.props.icon?this.props.node:''}</div>
             </FlexBox>
         )
     }

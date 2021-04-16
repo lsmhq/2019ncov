@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import reqPost from '../../js/api/api'
 import HeaderNav from '../../components/HeaderNav'
+import SlideShow from '../../components/Swet'
 import Util from '../../js/util/util'
 import '../../scss/good.scss'
 export default class goodDetail extends Component {
@@ -8,7 +9,8 @@ export default class goodDetail extends Component {
         super()
         this.state = {
             page:{},
-            loading:true
+            loading:true,
+            userInfo:{}
         }
     }
     componentDidMount(){
@@ -17,13 +19,20 @@ export default class goodDetail extends Component {
     }
     geData = ()=>{
         let { id } = Util.qsParse( window.location.href );
-        reqPost.topicsDetail(id).then(res=>{
+        reqPost.detail({id:id}).then(res=>{
             console.log(res.data)
             this.setState({
-                page:res.data.data
+                page:res.data.data[0]
             },()=>{
                 this.setState({
                     loading:false
+                })
+                console.log(this.state.page.userid)
+                reqPost.userInfo({id:this.state.page.userid}).then(res=>{
+                    this.setState({
+                        userInfo:res.data.data[0]
+                    })
+                    console.log(res.data)
                 })
             })
         })
@@ -37,6 +46,7 @@ export default class goodDetail extends Component {
                     title="商品详情"
                     history={this.props.history}
                     icon={false}
+                    back={true}
                 />
                 <div className={`loading`}><div></div></div>
             </div>
@@ -48,13 +58,47 @@ export default class goodDetail extends Component {
                     title={'商品详情'}
                     history={this.props.history}
                     icon={false}
+                    back={true}
                 />
                 <div className={`good-body`}>
                     <div className="imgContainer">
-                        <img src={this.state.page.author.avatar_url}/>
+                    <SlideShow>
+                        {
+                            this.state.page.imgs.map((val, idx)=>{
+                                return(
+                                    <img className="animated slideInRight faster" src={val} key={idx}/>
+                                )
+                            })
+                        }
+                    </SlideShow>
                     </div>
-                    <p>{this.state.page.title}</p>
-                    <pre className="preContent" dangerouslySetInnerHTML = {{__html:this.state.page.content}}></pre>
+                    <div className = "title">
+                        <span className="goodName">商品名：<span>{this.state.page.name}</span></span>
+                        <span className="goodPrice">价格:￥{this.state.page.price}</span>
+                    </div>
+                    <div className="title2">
+                        <div className="soler">
+                            <img src={this.state.userInfo.avator}/>
+                        </div>
+                        <div className="name">
+                            发布人:
+                            <span>{this.state.userInfo.name}</span>
+                        </div>
+                    </div>
+                    <div className="title3">
+                        <div className="line"></div>
+                        <div className="titleT">商品简介</div>
+                    </div>
+                    <div className="content" dangerouslySetInnerHTML={{__html:(this.state.page.desc).split(/\n/g).join('<br>')}}></div>
+                    <div className="title3">
+                        <div className="line"></div>
+                        <div className="titleT">商品评论</div>
+                    </div>
+                    <div className="content" dangerouslySetInnerHTML={{__html:(this.state.page.desc).split(/\n/g).join('<br>')}}></div>
+                    <div className="opBtn">
+                        <div className="btnOne">加入购物车</div>
+                        <div className="btnTwo">立即购买</div>
+                    </div>
                 </div>
             </div>
             )

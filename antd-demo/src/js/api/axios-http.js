@@ -20,19 +20,11 @@ import Axios from 'axios';
 // 请求
 const Request = {
     get: (url,params)=>{
-        return (Axios({
-            url:url,
-            method:'GET',
-            params:params
-        }))
+        return (Axios.get(url,{params:params}))
     },
 
     post: (url,params)=>{
-        return (Axios({
-            url:url,
-            method:'POST',
-            params:params
-        }))
+        return (Axios.post(url,params))
     }
 };
 

@@ -23,7 +23,7 @@ export default class main extends Component {
 
     componentDidMount(){
         document.title = '首页'
-        this.getData()
+        this.getData(this.state.activeTab)
     }
 
     render() {
@@ -51,26 +51,25 @@ export default class main extends Component {
                         {
                             this.state.list.map((val,idx)=>{
                                 return(
-                                    <Link to={"/goodDetail?id=" + val.id} className="goodLink">
+                                    <Link to={"/goodDetail?id=" + val.id} className="goodLink" key={idx}>
                                         <FlexBox 
                                             className="main-body-item"
-                                            key={idx}
                                             direction="column"
                                             // click = {(e)=>{this.toDetail(e,val)}}
                                         >
                                             <div className="imgContainer">
-                                                <img src={val.author?val.author.avatar_url:''}/>
+                                                <img src={val.imgs[0]}/>
                                             </div>
-                                            <p>{val.title}</p>
-                                            <p>{val.last_reply_at}</p>
+                                            <p className="name">{val.name}</p>
+                                            <p className="price">￥{val.price}</p>
                                         </FlexBox>
                                     </Link>
                                 )
                             })
                         }
                         <div className="main-body-msg">
-                            <div className="loading">
-                                <div></div>
+                            <div className="loading" style={{display:(this.state.loading)?'':'none'}}>
+                                <div style={{opacity:this.state.msg=="暂无数据"?0:1}}></div>
                                 <span>{this.state.msg}</span>
                             </div>
                         </div>
@@ -81,9 +80,11 @@ export default class main extends Component {
     }
     activeTab = (e,idx)=>{
         this.setState({
-            activeTab:idx
+            activeTab:idx,
+            height:0
         },()=>{
             console.log(this.state.activeTab)
+            this.getData(idx);
         })
     }
     toDetail = (e,val)=>{
@@ -92,19 +93,26 @@ export default class main extends Component {
             state:{id:val.id}
         })
     }
-    getData = ()=>{
+    getData = (filter)=>{
         this.setState({
             loading:true
         },()=>{
-            reqPost.topics({page:this.state.page,limit:10}).then(res=>{
+            reqPost.topics({page:this.state.page,limit:10,filter:filter}).then(res=>{
                 console.log(res.data)
-                this.setState({
-                    list:res.data.data
-                },()=>{
+                if(res.data.data.length <= 0){
                     this.setState({
-                        loading:false
+                        msg:'暂无数据'
                     })
-                })
+                }else{
+                    this.setState({
+                        list:res.data.data,
+                        msg:'加载中'
+                    },()=>{
+                        this.setState({
+                            loading:false
+                        })
+                    })
+                }
             }).catch(e=>{
                 window.postMessage(e)
                 // alert(e)

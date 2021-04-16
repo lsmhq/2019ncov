@@ -4,6 +4,7 @@ import Util from '../js/util/util'
 import reqPost from '../js/api/api'
 import FlexBox from '../components/flex/FlexBox'
 import '../scss/search.scss';
+import { Link } from 'react-router-dom'
 export default class search extends Component {
     constructor(){
         super()
@@ -23,6 +24,7 @@ export default class search extends Component {
                     op={this.op}
                     history={this.props.history}
                     icon={false}
+                    back={true}
                 />
                 <div className="search-header">
                     <div className="search-header-input">
@@ -40,15 +42,19 @@ export default class search extends Component {
                     {
                         this.state.list.map((val,idx)=>{
                             return(
+                                <Link to={"/goodDetail?id=" + val.id} className="goodLink" key={idx}>
                                 <FlexBox 
                                     className="main-body-item"
-                                    key={idx}
                                     direction="column"
+                                    // click = {(e)=>{this.toDetail(e,val)}}
                                 >
-                                    <img src={val.author.avatar_url}/>
-                                    <p>{val.title}</p>
-                                    <p>{val.last_reply_at}</p>
+                                    <div className="imgContainer">
+                                        <img src={val.imgs[0]}/>
+                                    </div>
+                                    <p className="name">{val.name}</p>
+                                    <p className="price">￥{val.price}</p>
                                 </FlexBox>
+                            </Link>
                             )
                         })
                     }
@@ -79,7 +85,15 @@ export default class search extends Component {
             }).then(res=>{
                 if(res.data.data.length > 0){
                     this.setState({
-                        list:res.data.data
+                        list:res.data.data,
+                        loading:false,
+                        msg:''
+                    })
+                }else{
+                    this.setState({
+                        list:res.data.data,
+                        loading:false,
+                        msg:'没找到任何内容'
                     })
                 }
             })
